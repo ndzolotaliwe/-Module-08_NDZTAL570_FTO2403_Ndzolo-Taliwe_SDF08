@@ -1,12 +1,12 @@
-*,
-* ::before
-* ::after {
+/* Box-sizing for all elements */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
+/* Root Variables */
 :root {
-    --ff-primary: 'Source Sans Pro' , sans-serif;
-    --ff-secondary: 'Source Code Pro' monospace;
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
 
     --fw-reg: 300;
     --fw-bold: 900;
@@ -20,11 +20,11 @@
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
 
-    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-          0.125em 0.125em 0.25em rgba(0,0,0,.15);
-
+    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+          0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
+/* Responsive font sizes */
 @media (min-width: 800px) {
     :root {
         --fs-h1: 4.5rem;
@@ -34,6 +34,7 @@
     }
 }
 
+/* Body styling */
 body {
     background: var(--clr-light);
     color: var(--clr-dark);
@@ -43,82 +44,100 @@ body {
     line-height: 1.6;
 }
 
+/* Section styling */
 section {
     padding: 5em 2em;
 }
 
+/* Image styling */
 img {
-    display: black;
+    display: block;
     max-width: 100%;
+    height: auto; /* Ensures images are responsive */
 }
 
-strong {font-weight: var(--fw-bold) }
+/* Strong text styling */
+strong {
+    font-weight: var(--fw-bold);
+}
 
- 
+/* Focus styling */
 :focus {
     outline: 3px solid var(--clr-accent);
     outline-offset: 3px;
 }
 
-.btn{
+/* Button styling */
+.btn {
     display: inline-block;
-    padding: .5em 2.5em;
+    padding: 0.5em 2.5em;
     background: var(--clr-accent);
-    color: var(--clr-accent );
     color: var(--clr-dark);
     text-decoration: none;
     cursor: pointer;
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: var(--fw-bold);
     transition: transform 200ms ease-in-out;
-
 }
 
-.btn:hover
+.btn:hover {
+    transform: scale(1.05);
+}
 
-h1,
-h2,
-h3 {
+/* Heading styling */
+h1, h2, h3 {
     line-height: 1.1;
     margin: 0;
 }
 
-h1 {font-size: var(--fs-h1)}
-h2 {font-size: var(--fs-h2)}
-h3 {font-size: var(--fs-h3)}
+h1 {
+    font-size: var(--fs-h1);
+}
 
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+/* Section title styling */
 .section__title {
-    margin-bottom: .25em;
+    margin-bottom: 0.25em;
 }
 
 .section__title--intro {
     font-weight: var(--fw-reg);
 }
 
-
 .section__title--intro strong {
     display: block;
 }
 
-.section_subtitle {
+.section__subtitle {
     margin: 0;
     font-size: var(--fs-h3);
 }
 
 .section__subtitle--intro,
-.section_subtitle--about {
+.section__subtitle--about {
     background: var(--clr-accent);
-    padding: .25em 1em;
-    font-family: var(--ffsecondary);
+    padding: 0.25em 1em;
+    font-family: var(--ff-secondary);
     margin-bottom: 1em;
 }
 
-nav {display: none;}
+/* Navigation styling */
+nav {
+    display: none;
+}
 
-intro{
-    position:relative;
+/* Introduction section styling */
+.intro {
+    position: relative;
 }
 
 .intro__img {
@@ -128,7 +147,6 @@ intro{
 .section__subtitle--intro {
     display: inline-block;
 }
-
 
 @media (min-width: 600px) {
     .intro {
@@ -141,6 +159,7 @@ intro{
           "img subtitle";
         grid-template-columns: min-content max-content;
     }
+
     .intro__img {
         grid-area: img;
         min-width: 200px;
@@ -150,7 +169,7 @@ intro{
 
     .section__subtitle--intro {
         align-self: start;
-        grid-column: -1 /1;
+        grid-column: -1 / 1;
         grid-row: 2;
         text-align: right;
         position: relative;
@@ -159,9 +178,10 @@ intro{
     }
 }
 
+/* My Services section styling */
 .my-services {
-    background-color: van(--clr-dark);
-    background-image: url(Lamizie.jpg);
+    background-color: var(--clr-dark);
+    background-image: url('Lamizie.jpg');
     background-size: cover;
     color: var(--clr-light);
     text-align: center;
@@ -171,7 +191,8 @@ intro{
     color: var(--clr-accent);
     position: relative;
 }
-.section__title--service::after {
+
+.section__title--services::after {
     content: '';
     display: block;
     width: 3em;
@@ -181,8 +202,8 @@ intro{
     opacity: 0.25;
 }
 
-.services{
-    margin-bottom: em;
+.services {
+    margin-bottom: 2em;
 }
 
 .service {
@@ -190,24 +211,25 @@ intro{
     margin: 0 auto;
 }
 
- @media (min-width: 800px) {
+@media (min-width: 800px) {
     .services {
         display: flex;
         max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
     }
-   
-.service + .service {
-    margin-left: 2em;
- } 
+
+    .service + .service {
+        margin-left: 2em;
+    }
 }
 
+/* About Me section styling */
 .about-me {
     max-width: 1000px;
     margin: 0 auto;
 }
 
-@media (min-wddth:600px) {
-    
+/* Media query placeholder */
+@media (min-width: 600px) {
+    /* Add responsive styles here if needed */
 }
